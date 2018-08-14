@@ -9,6 +9,14 @@ TypingMachine::TypingMachine() {
   return;
 }
 
+TypingMachine::~TypingMachine() {
+	while (mHead != nullptr) {
+		Node *node = mHead;
+		mHead = mHead->GetNextNode();
+		delete node;
+	}
+}
+
 void TypingMachine::HomeKey() {
 	if (mHead == nullptr)
 		return;
@@ -57,7 +65,7 @@ void TypingMachine::RightKey() {
 }
 
 bool TypingMachine::TypeKey(char key) {
-	if (key < 32 || key > 126 || mLength == 100) {
+	if (key < 32 || key > 126 || mLength >= 100) {
 		return false;
 	}
 

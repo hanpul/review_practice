@@ -11,10 +11,11 @@ class TypingMachine {
 private:
 	Node *mCurrNode;
 	Node *mHead;
-	int mLength;
+	unsigned int mLength;
 	void updateHead(Node * node);
  public:
   TypingMachine();
+  ~TypingMachine();
   void HomeKey();
   void EndKey();
   void LeftKey();
